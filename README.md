@@ -1,3 +1,7 @@
-# FIRST Tech Challenge (FTC)
+# Your title(Example: Handle remote control)
 
-Establish FTC database for Bayi School
+# Introduction:
+Your content......
+
+# Code:
+Your code......
