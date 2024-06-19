@@ -7,9 +7,9 @@ Example:Use a handle to control robot movement and control robot hardware<br>
 # Hardware-corresponding port:
 Upload your code，Only the port corresponding to the hardware needs to be written here.<br>
 Example:<br>
-   1.motor left front:<b>1<br>
-   2.motor right front:2<br>
-   3.servo robot arm:3<br>
+   1.motor left front:<b>1</b><br>
+   2.motor right front:<b>2</b><br>
+   3.servo robot arm:<b>3</b><br>
    .<br>
    .<br>
    .<br>
