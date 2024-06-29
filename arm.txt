@@ -1,14 +1,89 @@
-// D-pad上键控制Wrist1顺时针旋转
-        if (gamepad1.left_bumper) {
-            Wrist1.setPosition(0.5);
-        }// D-pad下键控制Wrist1逆时针旋转
-        else if (gamepad1.right_bumper) {
-            Wrist1.setPosition(0.7);
-        }
-        // D-pad左键控制Wrist2顺时针旋转
-        if (gamepad1.left_trigger>=0.5) {
-            Wrist2.setPosition(0.7);
-        }     // D-pad右键控制Wrist2逆时针旋转
-        else if (gamepad1.right_trigger>=0.5) {
-            Wrist2.setPosition(0.8);
-        }
+    //大臂位置
+            if(gamepad1.dpad_down){
+                Arm1.setPower(0.5);
+                Arm1.setTargetPosition(0);
+                Arm1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            }
+            else if(gamepad1.dpad_up){
+                Arm1.setPower(0.8);
+                Arm1.setTargetPosition(-1000);
+                Arm1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            }
+            else if(gamepad1.dpad_right){
+                Arm1.setPower(0.8);
+                Arm1.setTargetPosition(-500);
+                Arm1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                
+                //机器人放像素时大臂的位置（这里在中间向外微偏）
+            }
+
+         //lift
+            if(gamepad1.y){
+                Arm2.setPower(0.8);
+                Arm2.setTargetPosition(0);
+                Arm2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            }
+            else if(gamepad1.a){
+                Arm2.setPower(0.8);
+                Arm2.setTargetPosition(-1150);
+                Arm2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            }
+            else if(gamepad1.b){
+                Arm2.setPower(0.8);
+                Arm2.setTargetPosition(300);
+                Arm2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                
+                //机器人放像素时大臂的位置（这里在中间向外微偏）
+            }
+            
+            //combine
+            if (gamepad1.dpad_left && gamepad1.a) {
+                // 触发 dpad_right 的功能
+                Arm1.setPower(0.8);
+                Arm1.setTargetPosition(-500);
+                Arm1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+                // 触发 A 键的功能
+                Arm2.setPower(0.8);
+                Arm2.setTargetPosition(-1150);
+                Arm2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+                
+            }
+
+            // dpad_left 和 B 一起按触发连锁动作
+            if (gamepad1.dpad_left && gamepad1.b) {
+                // 触发 Y 键的功能
+                Arm2.setPower(0.8);
+                Arm2.setTargetPosition(90);
+                Arm2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+                // 触发 dpad_down 的功能
+                Arm1.setPower(0.5);
+                Arm1.setTargetPosition(0);
+                Arm1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+                // 触发 left_trigger 的功能
+                Wrist2.setPosition(0.6);
+            }
+            if (gamepad1.dpad_left && gamepad1.y) {
+                Fly1.setPosition(5.0); // 假设 0.0 是逆时针旋转的目标位置
+            }
+            
+            // dpad_left 和 left_trigger 一起按触发机器人向左平移3秒
+            if (gamepad1.dpad_left && gamepad1.left_trigger >= 0.5) {
+                runtime.reset();
+                while (runtime.seconds() < 3.0 && opModeIsActive()) {
+                    LeftFrontDrive.setPower(-0.5);
+                    LeftBehindDrive.setPower(0.5);
+                    RightFrontDrive.setPower(0.5);
+                    RightBehindDrive.setPower(-0.5);
+                }
+                // 停止所有驱动电机
+                LeftFrontDrive.setPower(0.0);
+                LeftBehindDrive.setPower(0.0);
+                RightFrontDrive.setPower(0.0);
+                RightBehindDrive.setPower(0.0);
+                Wrist2.setPosition(0.7);
+
+            }
