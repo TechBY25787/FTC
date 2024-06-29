@@ -1,0 +1,23 @@
+ // dpad_left 和 right_trigger 一起按触发机器人向右平移3秒
+            if (gamepad1.dpad_left && gamepad1.right_trigger >= 0.5) {
+                runtime.reset();
+                while (runtime.seconds() < 3.0 && opModeIsActive()) {
+                    LeftFrontDrive.setPower(0.5);
+                    LeftBehindDrive.setPower(-0.5);
+                    RightFrontDrive.setPower(-0.5);
+                    RightBehindDrive.setPower(0.5);
+                }
+                // 停止所有驱动电机
+                LeftFrontDrive.setPower(0.0);
+                LeftBehindDrive.setPower(0.0);
+                RightFrontDrive.setPower(0.0);
+                RightBehindDrive.setPower(0.0);
+                Wrist2.setPosition(0.7);
+
+            }
+            
+ 
+ 
+        }
+    }
+}
