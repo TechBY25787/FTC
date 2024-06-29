@@ -1,0 +1,45 @@
+// 设置电机方向
+        LeftFrontDrive.setDirection(DcMotor.Direction.REVERSE);
+        LeftBehindDrive.setDirection(DcMotor.Direction.REVERSE);
+        RightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
+        RightBehindDrive.setDirection(DcMotor.Direction.FORWARD);
+
+        // 设置电机零功率行为
+        LeftFrontDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        LeftBehindDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        RightFrontDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        RightBehindDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Arm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+
+
+        // 重置编码器位置并设置初始位置为0
+        Arm1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        Arm2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        // Wait for the game to start (driver presses PLAY)
+        waitForStart();
+
+
+        // run until the end of the match (driver presses STOP)
+        while (opModeIsActive()) {
+        //chassis
+        double y = -gamepad1.left_stick_y;
+        double x = gamepad1.left_stick_x;
+        double turn = gamepad1.right_stick_x;
+        double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(turn), 1);
+
+        if (Math.abs(y) < 0.1 && Math.abs(x) < 0.1 && Math.abs(turn) < 0.1) {
+            // 停止所有驱动电机
+            LeftFrontDrive.setPower(0.0);
+            LeftBehindDrive.setPower(0.0);
+            RightFrontDrive.setPower(0.0);
+            RightBehindDrive.setPower(0.0);
+        } else {
+            // 控制驱动电机
+            LeftFrontDrive.setPower((y + x + turn) / denominator);
+            LeftBehindDrive.setPower((y - x + turn) / denominator);
+            RightFrontDrive.setPower((y - x - turn) / denominator);
+            RightBehindDrive.setPower((y + x - turn) / denominator);
+        }
