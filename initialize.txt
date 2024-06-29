@@ -1,0 +1,17 @@
+@Override
+    public void runOpMode() {
+
+        // 初始化驱动电机
+        LeftFrontDrive = hardwareMap.get(DcMotor.class, "LeftFrontMotor");
+        LeftBehindDrive = hardwareMap.get(DcMotor.class, "LeftBehindMotor");
+        RightFrontDrive = hardwareMap.get(DcMotor.class, "RightFrontMotor");
+        RightBehindDrive = hardwareMap.get(DcMotor.class, "RightBehindMotor");
+
+        // 初始化机械臂电机
+        Arm1 = hardwareMap.get(DcMotor.class, "Arm1");
+        Arm2 = hardwareMap.get(DcMotor.class, "Arm2");
+
+        // 初始化舵机
+        Wrist1 = hardwareMap.get(Servo.class, "Wrist1");
+        Wrist2 = hardwareMap.get(Servo.class, "Wrist2");
+        Fly1 = hardwareMap.get(Servo.class, "Fly1");
