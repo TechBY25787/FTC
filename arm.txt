@@ -1,0 +1,14 @@
+// D-pad上键控制Wrist1顺时针旋转
+        if (gamepad1.left_bumper) {
+            Wrist1.setPosition(0.5);
+        }// D-pad下键控制Wrist1逆时针旋转
+        else if (gamepad1.right_bumper) {
+            Wrist1.setPosition(0.7);
+        }
+        // D-pad左键控制Wrist2顺时针旋转
+        if (gamepad1.left_trigger>=0.5) {
+            Wrist2.setPosition(0.7);
+        }     // D-pad右键控制Wrist2逆时针旋转
+        else if (gamepad1.right_trigger>=0.5) {
+            Wrist2.setPosition(0.8);
+        }
