@@ -1,0 +1,20 @@
+@TeleOp(name="TestHXG", group="Linear OpMode")
+
+public class Final extends LinearOpMode {
+
+    // drive motor
+    private DcMotor LeftFrontDrive;
+    private DcMotor LeftBehindDrive;
+    private DcMotor RightFrontDrive;
+    private DcMotor RightBehindDrive;
+
+    // Manipulator motor
+    private DcMotor Arm1;
+    private DcMotor Arm2;
+
+    // servo
+    private Servo Wrist1;
+    private Servo Wrist2;
+    private Servo Fly1;
+     // timer
+    private ElapsedTime runtime = new ElapsedTime();
