@@ -2,7 +2,12 @@
 This branch will teach you how to use github
 
 # How to write README.md
-First: how do you add secondary branches<br>
-&emsp;use # and blank to make a secondary branches<br>
+<b>First:</b> How do you add secondary branches<br>
+&emsp;use "#" add space to make a secondary branches<br>
 &emsp;exanple:<br>
-# # this is an exanple branches
+
+<b>Second:</b> How to write space<br>
+&emsp;use &nbsp add ";" <&nbsp;> to write one space<br>
+&emsp;use &ensp add ";" <&ensp;> to write two space<br>
+&emsp;use &emsp add ";" <&emsp;> to write four space<br>
+<font color=Red>Don't leave out the semicolon</font><br>
