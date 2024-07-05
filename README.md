@@ -1,3 +1,4 @@
-# FIRST Tech Challenge (FTC)
+# How to use Github
+This branch will teach you how to use github
 
-Establish FTC database for Bayi School
+# How to write README.md
