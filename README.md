@@ -2,8 +2,6 @@
 This branch will teach you how to use github
 
 # How to write README.md
-&emsp;README.md is Markdown fils<br>
-&emsp;<b>chinese course</b><br>
 &emsp;https://markdown.com.cn/basic-syntax/<br>
 
 # How to uplode video
