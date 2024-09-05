@@ -1,7 +1,8 @@
 # FIRST Tech Challenge (FTC)
 
 Establish FTC database for Bayi School
-# 23-24 Center Stage
+# FTC TechBY 25787 China
+# 23-24 Center Stage 中央舞台开源
 // /* Copyright (c) 2017 FIRST. All rights reserved.
 //  *
 //  * Redistribution and use in source and binary forms, with or without modification,
