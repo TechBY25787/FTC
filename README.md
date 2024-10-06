@@ -243,8 +243,81 @@ public class Final extends LinearOpMode {
                 Wrist2.setPosition(0.7);
 
             }
-            
+
+# TechBY DreamerX1 人形机器人开源
  
+  Arduino IDE(程序仅供参考)
+  #include <ZhouyuMAX.h>
+  if(ZhouyuMAX.readSonicSensorCM(A1)< 40){
+  ZhouyuMAX.setMotorSpeeds(0,0);//停止前进
+  ZhouyuMAX ZhouyuMAX;
+  void setup(){
+  ZhouyuMAX.ZhouyuBegin();
+  ZhouyuMAX.setMotorSpeeds(200,(-200));//驱动电机
+  ZhouyuMAX.setServoPosition(1,10);//左肩舵机
+  ZhouyuMAX.setServoPosition(2,170);右肩舵机
+  ZhouyuMAX.setServoPosition(3,90);//左肘舵机
+  ZhouyuMAX.setServoPosition(4,90);//右肘舵机
+  ZhouyuMAX.setServoPosition(5,90);//头部舵机
+  ZhouyuMAX.setServoPosition(6,150);//右夹持器
+  delay(1000);
+  ZhouyuMAX.setServoPosition(3,30);//左臂向后
+  ZhouyuMAX.setServoPosition(4,10);//右臂向前
+  delay(2000);
+  ZhouyuMAX.setServoPosition(6,20);//右夹持器松开
+  delay(1000);
+  ZhouyuMAX.setServoPosition(1,10);
+  ZhouyuMAX.setServoPosition(2,170)
+  ZhouyuMAX.setServoPosition(3,90);
+  ZhouyuMAX.setServoPosition(4,90);
+  ZhouyuMMAX.setServoPosition(5,90);
+  void loop({
+  ZhouyuMAX.setMotorSpeeds(200,(-200));
+  if (ZhouyuMAX.readSonicSensorCM(A2)<40){
+  ZhouyuMAX.setMotorSpeeds(0,0);
+  ZhouyuMAX.setServoPosition(4,10);
+  delay(2000);
+  ZhouyuMAX.setServoPosition(6,20);
+  delay(2000);
+  ZhouyuMAX.setServoPosition(6,150);
+  delay(2000);
+  ZhouyuMAX.setServoPosition(4,50);//右臂向前，右夹持器张开闭合。(模拟拿花的过程)
+  ZhouyuMAX.setMotorSpeeds(200,(-200));
+  ZhouyuMAX,setMotorSpeeds(200,(-200));
+  } else {
+  ZhouyuMAX.setServoPosition(6,150);//恢复初始状态
+  delay(1000);
+  ZhouyuMAX.setServoPosition(1,130);
+  ZhouyuMAX.setServoPosition(2,50);//左肩、右肩同时张开
+  ZhouyuMAX,setServoPosition(3.170):
+  ZhouyuMAX,setServoPosition(4,10);//左臂、右臂同时向前(模拟拥抱状态)
+  delay(4000);
+  ZhouyuMAX,setServoPosition(3,90);
+  ZhouyuMAX.setServoPosition(4,.90)
+  ZhouyuMAX.setServoPosition(1,10);
+  ZhouyuMAX.setServoPosition(2,170);//恢复初始状态
+  delay(3000);
+  ZhouyuMAX.setServoPosition(1,130);
+  ZhouyuMAX.setServoPosition(2,80);
+  ZhouyuMAX.setServoPosition(3,170):
+  ZhouyuMAX.setServoPosition(5,150);//向右转头的同时，右臂抬起，左臂弯曲向前抬起(模拟高兴的状态)
+  delay(3000);
+  ZhouyuMAX.setServoPosition(1,10);
+  ZhouyuMAX.setServoPosition(2,170);
+  ZhouyuMAX.setServoPosition(3,90);
+  ZhouyuMAX.setServoPosition(4.90)
+  ZhouyuMAX.setServoPosition(5,90);
+  delay(3000);
+  ZhouyuMAX.setServoPosition(1,100);
+  ZhouyuMAX.setServoPosition(2,50);
+  ZhouyuMAX.setServoPosition(4,10);
+  ZhouyuMAX.setServoPosition(5,30);//向左转头的同时，左臂抬起，右臂弯曲向前抬起delay(3000);
+  } else {
+  ZhouyuMAX.setServoPosition(1,10);ZhouyuMAX.setServoPosition(2,170);
+  ZhouyuMAX.setServoPosition(3,90);
+  ZhouyuMAX.setServoPosition(4,90);
+  ZhouyuMAX.setServoPosition(5,90);
+  ZhouyuMAX.setServoPosition(6,150)
  
         }
     }
